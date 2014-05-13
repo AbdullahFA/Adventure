@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ux6-cL-V71">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -15,16 +15,634 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan wakes up in the Mobile Maker space surrounded by empty pizza boxes." translatesAutoresizingMaskIntoConstraints="NO" id="5Ar-Ua-B6S">
+                                <rect key="frame" x="0.0" y="67" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG1-Mu-qCp">
+                                <rect key="frame" x="20" y="341" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear up boxes">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bOx-mT-2Au" kind="push" identifier="ClearUpBoxesSegue" id="6ws-dv-oes"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-wd-A1i">
+                                <rect key="frame" x="178" y="341" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Eat boxes">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qVc-FF-ALV" kind="push" identifier="EatBoxesSegue" id="SSF-vk-Lrw"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pizzaBox" translatesAutoresizingMaskIntoConstraints="NO" id="xS1-Hx-4gp">
+                                <rect key="frame" x="20" y="390" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-0G-5oO">
+                                <rect key="frame" x="20" y="252" width="280" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iH8-gf-zA2"/>
+                    <connections>
+                        <outlet property="ClearUpButton" destination="dG1-Mu-qCp" id="5NH-hn-VxR"/>
+                        <outlet property="EatBoxesButton" destination="jZ5-wd-A1i" id="6Y1-hs-muy"/>
+                        <outlet property="endResultLabel" destination="PKJ-0G-5oO" id="5Uz-ce-zpX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="55" y="-78"/>
+        </scene>
+        <!--Eat Boxes View Controller-->
+        <scene sceneID="Gej-Cb-c3I">
+            <objects>
+                <viewController id="qVc-FF-ALV" customClass="EatBoxesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lJt-TX-55r"/>
+                        <viewControllerLayoutGuide type="bottom" id="RR7-Uk-Gyt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p3h-gk-f4M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan's hunger is still not satisfied so he leaves the building searching for more items to consume." translatesAutoresizingMaskIntoConstraints="NO" id="MAl-fr-YMq">
+                                <rect key="frame" x="0.0" y="132" width="320" height="145"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tw-LC-kFl">
+                                <rect key="frame" x="84" y="274" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ryan goes to a bar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wEI-PX-Lb4" kind="push" identifier="GoesToBarSegue" id="Cam-4g-UeT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdY-Zf-hXK">
+                                <rect key="frame" x="41" y="320" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ryan goes to an all you can eat buffet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NQc-yw-615" kind="push" identifier="AllYouCanEatBuffetSegue" id="Eo6-vh-Aqb"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="building" translatesAutoresizingMaskIntoConstraints="NO" id="Lr8-xt-GlU">
+                                <rect key="frame" x="40" y="389" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e22-ML-F8k"/>
+                    <connections>
+                        <outlet property="buffetButton" destination="MdY-Zf-hXK" id="XYa-c4-Lcv"/>
+                        <outlet property="goesToBarButton" destination="1tw-LC-kFl" id="OcE-gf-fZR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVT-bj-Cr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="524"/>
+        </scene>
+        <!--Goes To Bar View Controller-->
+        <scene sceneID="oSp-N2-f2R">
+            <objects>
+                <viewController id="wEI-PX-Lb4" customClass="GoesToBarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jKR-c9-mQH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ivx-UT-gpo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pfE-OF-oGa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan drinks himself into a stupor. When the bar closes, Ryan leaves..." translatesAutoresizingMaskIntoConstraints="NO" id="AD2-LL-o5l">
+                                <rect key="frame" x="0.0" y="91" width="320" height="145"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I13-Si-jDx">
+                                <rect key="frame" x="108" y="253" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="With the Police">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="h8q-kY-qnl" kind="push" identifier="WithPoliceSegue" id="dBE-nC-utR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kue-J7-JAK">
+                                <rect key="frame" x="20" y="310" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="With his friends, taking him to the hospital">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NQc-yw-615" kind="push" identifier="FriendsTakeHimSegue" id="HtN-AV-9aF"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drunkGuy" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-Og-jyw">
+                                <rect key="frame" x="40" y="383" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="taT-PZ-bLM"/>
+                    <connections>
+                        <outlet property="WithFriendsButton" destination="Kue-J7-JAK" id="Xwp-eh-e7T"/>
+                        <outlet property="WithPoliceButton" destination="I13-Si-jDx" id="fIA-AZ-qnN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82T-0k-BMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="1039"/>
+        </scene>
+        <!--In Jail View Controller-->
+        <scene sceneID="reX-F5-M5L">
+            <objects>
+                <viewController id="h8q-kY-qnl" customClass="InJailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XqN-yu-ZtL"/>
+                        <viewControllerLayoutGuide type="bottom" id="GKH-0v-W5P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xuP-gd-Et9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="While in jail, Ryan sees Chris Brown (the rapper). Does Ryan...." translatesAutoresizingMaskIntoConstraints="NO" id="0CK-zg-ue6">
+                                <rect key="frame" x="0.0" y="90" width="320" height="133"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-Nt-QbR">
+                                <rect key="frame" x="90" y="240" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go talk to Chris Brown">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="oIX-5U-Szk" kind="push" identifier="TalkToChrisBrownSegue" id="MWW-5N-UMX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhV-0F-K9m">
+                                <rect key="frame" x="33" y="290" width="254" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fights Chris Brown for Rihanna">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jw5-Yd-j0p" kind="push" identifier="FightChrisBrownSegue" id="ixt-c4-HEL"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jail" translatesAutoresizingMaskIntoConstraints="NO" id="zuA-hQ-0aV">
+                                <rect key="frame" x="40" y="372" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sQC-XI-AtW"/>
+                    <connections>
+                        <outlet property="TalkChrisBrownButton" destination="1Hz-Nt-QbR" id="lIq-BT-mFC"/>
+                        <outlet property="fightsChrisBrown" destination="WhV-0F-K9m" id="LdT-tB-pbL"/>
+                        <outlet property="talkChrisBrownButton" destination="1Hz-Nt-QbR" id="Sj4-V4-hqU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LS9-jg-jPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2041" y="842"/>
+        </scene>
+        <!--Chris Brown View Controller-->
+        <scene sceneID="kcA-DH-6O1">
+            <objects>
+                <viewController id="oIX-5U-Szk" customClass="ChrisBrownViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v2D-Me-vnP"/>
+                        <viewControllerLayoutGuide type="bottom" id="7rh-eL-p6K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LqX-I9-Vc0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Does Chris Brown...." translatesAutoresizingMaskIntoConstraints="NO" id="cop-5p-P2L">
+                                <rect key="frame" x="0.0" y="68" width="320" height="122"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-hr-3ft">
+                                <rect key="frame" x="54" y="198" width="213" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Introduce him to a girl...">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ivy-Te-pdF" kind="push" identifier="IntroduceToGirlSegue" id="nfp-bU-Uc5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDQ-25-yWl">
+                                <rect key="frame" x="102" y="236" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Give him drugs">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NQc-yw-615" kind="push" identifier="GiveHimDrugSegue" id="DXL-Qy-Xio"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chrisBrown" translatesAutoresizingMaskIntoConstraints="NO" id="FHm-VI-Hym">
+                                <rect key="frame" x="40" y="324" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NTm-hC-ZGA"/>
+                    <connections>
+                        <outlet property="giveHimDrugsButton" destination="NDQ-25-yWl" id="mq3-dN-uyi"/>
+                        <outlet property="introduceToGirlButton" destination="XCB-hr-3ft" id="Bq8-uL-QnH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQw-c4-mW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="395"/>
+        </scene>
+        <!--Chris Brown Duet View Controller-->
+        <scene sceneID="vSx-lH-4k7">
+            <objects>
+                <viewController id="jw5-Yd-j0p" customClass="ChrisBrownDuetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egi-vc-L2i"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jr3-2I-DSk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ppD-Zm-VlV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan wins and they make a duet together" translatesAutoresizingMaskIntoConstraints="NO" id="ZAY-e9-fuA">
+                                <rect key="frame" x="0.0" y="142" width="320" height="150"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chrisBrownDuet" translatesAutoresizingMaskIntoConstraints="NO" id="7gr-Hx-UVQ">
+                                <rect key="frame" x="40" y="344" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-sC-ZvW">
+                                <rect key="frame" x="137" y="486" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Yt9-aY-DDK" kind="unwind" identifier="duet" unwindAction="unwindMethod:" id="pVI-VP-uKf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dHH-Qs-BrL"/>
+                    <connections>
+                        <outlet property="duetTextView" destination="ZAY-e9-fuA" id="lQc-ph-1bi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hD-eF-EQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Yt9-aY-DDK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2641" y="1088"/>
+        </scene>
+        <!--All You Can Eat Buffet View Controller-->
+        <scene sceneID="dy8-Vr-jL3">
+            <objects>
+                <viewController id="NQc-yw-615" customClass="AllYouCanEatBuffetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zrP-Lg-QW4"/>
+                        <viewControllerLayoutGuide type="bottom" id="EPZ-oa-FTC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j1F-nx-UeP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stomachPump" translatesAutoresizingMaskIntoConstraints="NO" id="1Jc-MC-YTO">
+                                <rect key="frame" x="40" y="317" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-82-0qM">
+                                <rect key="frame" x="137" y="453" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dxQ-vg-oCR" kind="unwind" identifier="buffet" unwindAction="unwindMethod:" id="WWE-Pc-VhD"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan gets stomach pumped. The end." translatesAutoresizingMaskIntoConstraints="NO" id="kwD-1P-5MZ">
+                                <rect key="frame" x="40" y="144" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lzg-8U-Dez"/>
+                    <connections>
+                        <outlet property="buffetTextView" destination="kwD-1P-5MZ" id="FB7-ty-cmO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuc-yz-FXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dxQ-vg-oCR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="-442"/>
+        </scene>
+        <!--Clear Up Boxes View Controller-->
+        <scene sceneID="ZWc-eb-xjV">
+            <objects>
+                <viewController id="bOx-mT-2Au" customClass="ClearUpBoxesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U1r-K5-7ig"/>
+                        <viewControllerLayoutGuide type="bottom" id="GiS-SH-vQ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kmO-fO-EmV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jpq-kr-33S">
+                                <rect key="frame" x="0.0" y="99" width="320" height="185"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">After clearing up the last of the pizza boxes, he's gazing out the window and notices a lady getting robbed on the street below....</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQO-V7-UGh">
+                                <rect key="frame" x="56" y="292" width="208" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ryan decides to help the lady">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dmo-NH-ezO" kind="push" identifier="HelpsTheLadySegue" id="hSI-fg-j7S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5O-2c-PNh">
+                                <rect key="frame" x="73" y="337" width="174" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ryan looks the other way">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eP9-QW-5PV" kind="push" identifier="LooksOtherWaySegue" id="Gp0-0N-t2j"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="windowGazing" translatesAutoresizingMaskIntoConstraints="NO" id="muK-I3-6DB">
+                                <rect key="frame" x="40" y="395" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nMQ-cB-Ui0"/>
+                    <connections>
+                        <outlet property="helpLadyButton" destination="OQO-V7-UGh" id="G5X-pG-XuH"/>
+                        <outlet property="lookOtherWayButton" destination="l5O-2c-PNh" id="KES-XV-Vsl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odB-SP-1Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="-872"/>
+        </scene>
+        <!--Looks Other Way View Controller-->
+        <scene sceneID="i8t-M9-d3m">
+            <objects>
+                <viewController id="eP9-QW-5PV" customClass="LooksOtherWayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YW6-aL-yDg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ihx-xw-Klz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zkT-DN-9Dd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUz-BU-q4e">
+                                <rect key="frame" x="0.0" y="104" width="320" height="194"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Ryan binge eats all of the weeks old leftovers at Mobile Makers. He walks out on the street and sees some people, is it the love of his life from 4th grade, or the evil robber again who poisons him..</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WML-lC-xFE">
+                                <rect key="frame" x="105" y="306" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Love of His Life!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ivy-Te-pdF" kind="push" identifier="LoveOfHisLifeSegue" id="skB-cr-FH1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-lO-haB">
+                                <rect key="frame" x="121" y="359" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Evil Robber">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NQc-yw-615" kind="push" identifier="EvilRobberSegue" id="1Om-Lr-2fU"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bingeEating" translatesAutoresizingMaskIntoConstraints="NO" id="Uex-Gb-eMz">
+                                <rect key="frame" x="40" y="407" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="W2I-JA-TP7"/>
+                    <connections>
+                        <outlet property="EvilRobberButton" destination="2ZW-lO-haB" id="Qfx-oO-hDp"/>
+                        <outlet property="LoveOfLifeButton" destination="WML-lC-xFE" id="0AM-Q3-e6W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VL6-4X-apB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255" y="-408"/>
+        </scene>
+        <!--Helps Lady View Controller-->
+        <scene sceneID="ciM-5N-a22">
+            <objects>
+                <viewController id="Dmo-NH-ezO" customClass="HelpsLadyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FDO-wg-o6l"/>
+                        <viewControllerLayoutGuide type="bottom" id="F1Q-Ig-h0b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2nZ-XU-WH9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vit-Tu-r4S">
+                                <rect key="frame" x="0.0" y="90" width="320" height="194"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">He gets down the stairs just in time to knock out the robber, and retrieve the lady's purse. She is swept off her feet and they start a relationship. On their first vacation to Las Vegas, do they...</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sx6-Bv-s9q">
+                                <rect key="frame" x="128" y="292" width="90" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get Married?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ivy-Te-pdF" kind="push" identifier="GetsMarriedSegue" id="6xp-sS-Dir"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2r-5j-W9D">
+                                <rect key="frame" x="105" y="339" width="137" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get food Poisoning ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NQc-yw-615" kind="push" identifier="GetsFoodPoisoningSegue" id="7PC-Ve-Oyp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lasVegas" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-lP-thO">
+                                <rect key="frame" x="53" y="397" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fmC-ae-2DR"/>
+                    <connections>
+                        <outlet property="foodPoisoningButton" destination="C2r-5j-W9D" id="4Sd-Bl-c5n"/>
+                        <outlet property="marriedButton" destination="Sx6-Bv-s9q" id="dx4-qV-Eoq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FmR-wX-7c6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255" y="-1086"/>
+        </scene>
+        <!--Marriage View Controller-->
+        <scene sceneID="11c-MR-w6b">
+            <objects>
+                <viewController id="ivy-Te-pdF" customClass="MarriageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="29s-hD-OZf"/>
+                        <viewControllerLayoutGuide type="bottom" id="jYR-fQ-O8d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WDn-Za-Hf9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ryan gets married with four children. The end." translatesAutoresizingMaskIntoConstraints="NO" id="QPR-OZ-82e">
+                                <rect key="frame" x="0.0" y="124" width="320" height="194"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marriage" translatesAutoresizingMaskIntoConstraints="NO" id="wA5-ft-t5X">
+                                <rect key="frame" x="40" y="326" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJY-u1-uti">
+                                <rect key="frame" x="123" y="484" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Unwind">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jV2-GJ-e5m" kind="unwind" identifier="marriage" unwindAction="unwindMethod:" id="XGs-wY-f7h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sr7-Ne-qkN"/>
+                    <connections>
+                        <outlet property="button" destination="jJY-u1-uti" id="XyV-he-zCQ"/>
+                        <outlet property="marriageTextView" destination="QPR-OZ-82e" id="RVq-XL-gE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7uc-aQ-yvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jV2-GJ-e5m" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="-980"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yg6-io-N3r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ux6-cL-V71" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q6h-l7-udK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="5Ut-hd-oxx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IN-HN-n04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="-102"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bingeEating" width="126" height="102"/>
+        <image name="building" width="200" height="200"/>
+        <image name="chrisBrown" width="275" height="182"/>
+        <image name="chrisBrownDuet" width="250" height="250"/>
+        <image name="drunkGuy" width="250" height="250"/>
+        <image name="jail" width="200" height="200"/>
+        <image name="lasVegas" width="250" height="162"/>
+        <image name="marriage" width="400" height="343"/>
+        <image name="pizzaBox" width="248" height="269"/>
+        <image name="stomachPump" width="144" height="103"/>
+        <image name="windowGazing" width="427" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="6xp-sS-Dir"/>
+        <segue reference="7PC-Ve-Oyp"/>
+    </inferredMetricsTieBreakers>
 </document>
